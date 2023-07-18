@@ -1,0 +1,19 @@
+syntax = "proto3";
+package rpc;
+
+service Simple {
+    // Simple ping
+    rpc Ping(PingRequest) returns (PingReply) {}
+}
+
+message PingRequest {
+    uint64 id = 1;
+    optional string data = 2;
+}
+
+message PingReply {
+    uint64 id = 1;
+    uint64 rid = 2;
+    optional string data = 3;
+}
+
