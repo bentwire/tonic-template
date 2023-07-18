@@ -1,6 +1,6 @@
 [package]
-#name = "tonic-template"
-name = "{{project-name}}"
+name = "tonic-template"
+#name = "{{project-name}}"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
@@ -45,3 +45,11 @@ maintainer-scripts = "debian"
 
 [package.metadata.deb.systemd-units]
 unit-name = "{{project-name}}"
+
+[[bin]]
+name = "server"
+path = "src/server.rs"
+
+[[bin]]
+name = "client"
+path = "src/client.rs"
