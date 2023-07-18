@@ -9,10 +9,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     
     // Do stuff
     println!("Hello, world!");
-    tracing::info!("About to sleep.");
 
-    tokio::time::sleep(std::time::Duration::from_secs(10)).await;
+    loop {
+        tracing::info!("About to sleep.");
+        tokio::time::sleep(std::time::Duration::from_secs(1)).await;
+    }
+    
 
     // Done
-    Ok(())
+    //Ok(())
 }

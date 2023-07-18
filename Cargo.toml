@@ -2,12 +2,35 @@
 name = "tokio-template"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+clap = { version = "4.3.15", features = ["derive"] }
 console-subscriber = "0.1.10"
-tokio = { version = "1.29.1", features = ["full", "tracing", "mio"] }
+figment = { version = "0.10.10", features = ["env", "toml", "yaml", "json"] }
+tokio = { version = "1.29.1", features = ["full", "tracing"] }
 tracing = "0.1.37"
 tracing-subscriber = "0.3.17"
 tracing-timing = "0.6.0"
+
+[package.metadata.deb]
+#maintainer = ""
+#copyright = ""
+#license-file = ["LICENSE", "4"]
+extended-description = """\
+Tokio Template Project"""
+depends = "$auto"
+#section = "utility"
+#priority = "optional"
+assets = [
+    ["target/release/tokio-template", "usr/bin/", "755"],
+#    ["Rocket.toml", "usr/share/tokio-template", "644"],
+#    ["templates/**/*", "usr/share/tokio-template/templates/", "644"],
+#    ["static/**/*", "usr/share/tokio-template/static/", "644"],
+]
+maintainer-scripts = "debian"
+
+[package.metadata.deb.systemd-units]
+unit-name = "tokio-template"
