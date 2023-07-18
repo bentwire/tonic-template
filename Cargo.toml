@@ -25,12 +25,12 @@ depends = "$auto"
 #section = "utility"
 #priority = "optional"
 assets = [
-    ["target/release/tokio-template", "usr/bin/", "755"],
-#    ["Rocket.toml", "usr/share/tokio-template", "644"],
-#    ["templates/**/*", "usr/share/tokio-template/templates/", "644"],
-#    ["static/**/*", "usr/share/tokio-template/static/", "644"],
+    ["target/release/{{project-name}}", "usr/bin/", "755"],
+#    ["Rocket.toml", "usr/share/{{project-name}}", "644"],
+#    ["templates/**/*", "usr/share/{{project-name}}/templates/", "644"],
+#    ["static/**/*", "usr/share/{{project-name}}/static/", "644"],
 ]
 maintainer-scripts = "debian"
 
 [package.metadata.deb.systemd-units]
-unit-name = "tokio-template"
+unit-name = "{{project-name}}"
